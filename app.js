@@ -4,7 +4,13 @@ const bodyParser = require("body-parser");
 const app = express();
 
 app.get("/", (req, res) => {
-    res.send("Hello");
+    var today = new Date();
+
+    if (today.getDay() === 6 || today.getDay() === 0){
+        res.send("Weekend");   
+    } else {
+        res.send("weekday");
+    }
 });
 
 
