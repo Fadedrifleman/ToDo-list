@@ -9,18 +9,18 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 
-var items = [];
+let items = [];
 
 app.get("/", (req, res) => {
-    var today = new Date();
+    let today = new Date();
 
-    var option = {
+    let option = {
         weekday: "long",
         day: "numeric",
         month: "long"
     };
 
-    var day = today.toLocaleDateString("en-US", option);
+    let day = today.toLocaleDateString("en-US", option);
     res.render("list", {
         Day: day,
         newListItems: items
@@ -28,7 +28,7 @@ app.get("/", (req, res) => {
 });
 
 app.post("/", (req, res) => {
-    var item = req.body.newItem;
+    let item = req.body.newItem;
 
     items.push(item);
     res.redirect("/");
